@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package dev.stackframe.armeria.kotlin.grpc;
+option java_package = "dev.stackframe.armeria.kotlin.grpc";
+
+message DummyRequest {
+  string text = 1;
+}
+
+message DummyResponse {
+  string text = 1;
+}
+
+service FirstGrpcService {
+  rpc dummy(DummyRequest) returns (DummyResponse) {}
+}
+
+service SecondGrpcService {
+  rpc dummy(DummyRequest) returns (DummyResponse) {}
+}

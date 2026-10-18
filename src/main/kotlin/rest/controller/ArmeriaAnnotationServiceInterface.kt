@@ -1,0 +1,3 @@
+package dev.stackframe.armeria.kotlin.rest.controller
+
+interface ArmeriaAnnotationServiceInterface

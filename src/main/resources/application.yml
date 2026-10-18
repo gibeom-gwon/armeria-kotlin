@@ -1,0 +1,10 @@
+spring.main.web-application-type: none
+
+armeria:
+  ports:
+    - port: 8080
+      protocols:
+        - http
+  internal-services:
+    include: docs, health, metrics, actuator
+    port: 8090

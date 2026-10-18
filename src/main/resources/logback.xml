@@ -1,0 +1,18 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%-30thread] %X{requestId:--} %-5level %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ARMERIA_CONSOLE" class="com.linecorp.armeria.common.logback.RequestContextExportingAppender">
+        <appender-ref ref="CONSOLE" />
+        <export>requestId=attr:dev.stackframe.armeria.kotlin.context.ServerAttributeKeys#REQUEST_ID</export>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="ARMERIA_CONSOLE" />
+    </root>
+</configuration>
